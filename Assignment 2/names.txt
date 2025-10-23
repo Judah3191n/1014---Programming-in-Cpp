@@ -1,0 +1,25 @@
+bob
+a
+b
+c
+d
+e
+f
+g
+h
+ii
+cd "c:\GitHub\1014---Programming-in-Cpp\Assignment 2\" ; if ($?) { g++ main.cpp -o main } ; if ($?) { .\main }
+cd "c:\GitHub\1014---Programming-in-Cpp\Assignment 2\" ; if ($?) { g++ main.cpp -o main } ; if ($?) { .\main }
+
+
+
+a
+b
+c
+d
+e
+bab
+asd
+bsda
+sdaf
+a
