@@ -1,2 +1,2 @@
 
-        cout << "\tDie 2: "<<die2<<endl;
+    // Task 2: Number Guessing Game
