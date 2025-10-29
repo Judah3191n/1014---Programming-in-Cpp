@@ -14,6 +14,7 @@ double averageArray(int z[5]);
 void D2Arr();
 void arrayPlay();
 void loop2DArr(int z[4][3]);
+int add(int a);
 
 int main(){
 
@@ -82,5 +83,17 @@ void loop2DArr(int z[4][3]){
         for(int column = 0; column<3; column++){
             cout << z[row][column] << endl;
         }
+    }
+}
+
+int add(int a){
+    int sum = 0;
+    int value = a;
+    sum+=value;
+    value--;
+    if(a==0){
+        return sum;
+    } else {
+        add(value);
     }
 }

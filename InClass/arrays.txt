@@ -1,0 +1,18 @@
+int* arr = new int[n]; //allocates array of size n
+ex.
+	int size;
+	cout << "enter size: ";
+	cin >> size;
+	
+	int* arr = new int[size];
+
+need a pointer to be a dynamic array
+
+delete array when finished
+	delete[] arr
+delete arr //only deletes first element
+
+
+
+
+V
