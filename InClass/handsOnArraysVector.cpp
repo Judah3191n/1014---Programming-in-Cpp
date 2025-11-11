@@ -2,18 +2,19 @@
 #include <vector>
 using namespace std;
 
-const int numOfStudents = 5;
+const int numOfStudents = 2;
 
+//Static
 string staticNames[3];
 int staticGrades[3];
+//Dynamic
 string *dynamicNames = new string[numOfStudents];
 int *dynamicGrades = new int[numOfStudents];
+//Vector
 vector<int> vectorGrades;
 vector<string> vectorNames;
 
-
-void inputData();//inputs to vector and dynamic array
-void inputStaticData();//inputs to static
+void inputData();//inputs all data
 void displayStaticArrayData();//displays static data
 void displayDynamicArrayData();//displays dynamic data
 void displayVectorData();//displays vector data
@@ -22,34 +23,21 @@ double averageVector(vector<int> z);
 
 const int staticSize = sizeof(staticNames) / sizeof(staticNames[0]);
 
+
 int main(){
-    inputData();//same for all
-    displayDynamicArrayData();
-    displayVectorData();
-    displayStaticArrayData();
+    inputData();//input all data
+    displayDynamicArrayData();//display dynamic
+    displayVectorData();//display vector
+    displayStaticArrayData();//display static
 
-    cout << "\nAverage Grade: "<<averageArray(dynamicGrades);
+    cout << "\nAverage Grade: "<<averageArray(dynamicGrades);//average
 
+    //Delete
     delete[] dynamicNames, dynamicGrades, staticNames, staticGrades;
     staticNames, staticGrades, dynamicNames,dynamicGrades = nullptr;
     return 0;
 }
 
-
-void inputStaticData(){
-    string tempName;
-    int tempGrade;
-    for (int i = 0; i<staticSize; i++){
-        cout << "enter a name: ";
-        getline(cin, tempName);
-        cout << "enter a grade: ";
-        cin >> tempGrade;
-        getline(cin, tempName);
-
-        staticNames[i] = tempName;
-        staticGrades[i] = tempGrade;
-    }
-}
 
 void inputData(){
     string tempName;
