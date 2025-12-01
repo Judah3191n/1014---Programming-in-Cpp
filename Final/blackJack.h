@@ -18,7 +18,6 @@ class Card{
         char getSuit();
         string getRank();
 };
-
 class Deck{
     vector<Card> cards;
     int position = 0;
@@ -30,8 +29,6 @@ class Deck{
         void shuffleDeck();
         Card dealCard();
 };
-
-//both the player and dealer
 class Player{
     vector<Card> hand;
     string printableHand[4];
@@ -49,5 +46,6 @@ class Player{
 };
 
 void clearScreen();
-
+void displayTable(Player dealer, Player player, bool dealersTurn = false);
+void results(Player dealer, Player player);
 #endif

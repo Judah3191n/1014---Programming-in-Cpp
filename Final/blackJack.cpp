@@ -10,22 +10,76 @@
 void clearScreen() {
     cout << "\033[2J\033[1;1H";  // Clear screen and move cursor to top-left
 }
+void displayTable(Player dealer, Player player, bool dealersTurn){
+    clearScreen();
+    if(dealersTurn){
+        cout << "--------Dealer's turn--------"<<endl;
+        cout << "Dealers hand: " <<endl;
+        dealer.displayHand();
 
+        cout << "\nPlayers hand: " <<endl;
+        player.displayHand();
+
+        cout << "\n\nDealer Total: " << dealer.getHandValue()<<endl;
+    } else {
+        cout << "--------Player's turn--------"<<endl;
+
+        cout << "Dealers hand: " <<endl;
+        dealer.displayHand(true);
+
+        cout << "\nPlayers hand: " <<endl;
+        player.displayHand();
+
+        cout << "Player Total: " << player.getHandValue()<<endl;
+    }
+};
+void results(Player dealer, Player player){
+    cout << "\np---------------------------q"<<endl;
+    cout << "|         Game Over         |"<<endl;
+    cout << "b---------------------------d"<<endl;
+
+
+    //find winner
+    int p = player.getHandValue();
+    int d = dealer.getHandValue();
+
+    cout << "\nFinal Results:"<<endl;
+    cout << "\tDealer total: "<< d <<endl;
+    cout << "\tPlayer total: " << p << "\n"<<endl;
+
+
+
+    if (p > 21 && d > 21) {
+        cout << "Draw!" << endl; // both bust
+    } else if (p == 21 && d == 21) {
+        cout << "Draw!" << endl; // both hit 21
+    } else if (p == 21) {
+        cout << "Player wins!" << endl;
+    } else if (d == 21) {
+        cout << "Dealer wins!" << endl;
+    } else if (p > 21) {
+        cout << "Dealer wins!" << endl; // player bust
+    } else if (d > 21) {
+        cout << "Player wins!" << endl; // dealer bust
+    } else if (p > d) {
+        cout << "Player wins!" << endl;
+    } else if (d > p) {
+        cout << "Dealer wins!" << endl;
+    } else {
+        cout << "Draw!" << endl; // same number
+    }
+};
 //Card
     Card::Card(string r, string s, int v) : rank(r), suit(s), value(v){}
-
     int Card::getValue(){
         return value;
     }
-
     void Card::display(){
         cout << rank << " of "<<suit<<endl;
     }
-
     char Card::getSuit(){
         return suit[0];
-    }
-    
+    }   
     string Card::getRank(){
         return rank;
     }
@@ -37,7 +91,6 @@ void clearScreen() {
         buildDeck();
         shuffleDeck();
     }
-
     void Deck::buildDeck() {
         string suits[] = {"Hearts", "Dimonds", "Clubs", "Spades"}; //possible suits
         int values[] = {2,3,4,5,6,7,8,9,10,10,10,10,11}; //values 10 - K are = 10   a = 1 or 11(compared when player hits)  eveything else is their value
@@ -50,18 +103,15 @@ void clearScreen() {
             }
         }
     }
-
     void Deck::shuffleDeck(){
         srand(time(0));
         //?pointers:  randomizes vector, include algorithm
         random_shuffle(cards.begin(), cards.end());
     }
-
     Card Deck::dealCard(){
         //adds position after passed through
         return cards[position++];
     }
-
 
 
 //Player
@@ -78,7 +128,6 @@ void clearScreen() {
         printableHand[2] += "| "+string(1,card.getSuit())+" | ";
         printableHand[3] += "b---d ";
     }
-
     //find the value of each hand
     int Player::getHandValue(){
         int total = 0;
@@ -99,7 +148,6 @@ void clearScreen() {
 
         return total;
     }
-
     //prints out each line from drawable hand, so it looks like actual cards
     void Player::displayHand(bool hideHand) const{
         for(int i = 0; i<4; i++){
