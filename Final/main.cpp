@@ -1,10 +1,14 @@
+#include <windows.h>
 #include <iostream>
 #include "blackJack.h"
 
 using namespace std;
 
-
+//chcp 65001
 int main(){
+    SetConsoleOutputCP(CP_UTF8); //set UTF-9 out put to display ♠ ♥ ♦ ♣
+    
+
     Deck deck;
     Player player,dealer;
 

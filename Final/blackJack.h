@@ -15,7 +15,7 @@ class Card{
         Card(string r, string s, int v);
         int getValue();
         void display();
-        char getSuit();
+        string getSuit();
         string getRank();
 };
 class Deck{
@@ -33,10 +33,10 @@ class Player{
     vector<Card> hand;
     string printableHand[4];
     string blankCard[4] = {
-        "p---q",
-        "|\\ /|",
-        "|/ \\|",
-        "b---d"
+        "p---q ",
+        "|\\ /| ",
+        "|/ \\| ",
+        "b---d "
     };
 
     public:
