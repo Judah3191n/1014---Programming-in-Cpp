@@ -1,17 +1,25 @@
+//& PROG2100_11 Slide 9
+// blackJack.h
+
 #ifndef blackJack_util
 #define blackJack_util
 
+//&PROG2100_02 Slide 6
 #include <string>
 #include <vector>
 
 using namespace std;
 
+//& PROG2100_08 Slide 5
 class Card{
-    int value;
-    string suit;
-    string rank;
+    //& PROG2100_08 Slide 7
+    private:
+        int value;
+        string suit;
+        string rank;
 
     public:
+        //& PROG2100_08 Slide 10
         Card(string r, string s, int v);
         int getValue();
         void display();
@@ -46,6 +54,7 @@ class Player{
 };
 
 void clearScreen();
+void pause();
 void displayTable(Player dealer, Player player, bool dealersTurn = false);
 void results(Player dealer, Player player);
 #endif
