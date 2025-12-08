@@ -38,23 +38,48 @@ class Deck{
         Card dealCard();
 };
 class Player{
-    vector<Card> hand;
-    string printableHand[4];
-    string blankCard[4] = {
-        "p---q ",
-        "|\\ /| ",
-        "|/ \\| ",
-        "b---d "
-    };
+    private:
+        long tokens = 100L;
+        vector<Card> hand;
+        string printableHand[4];
+        string blankCard[4] = {
+            "p---q ",
+            "|\\ /| ",
+            "|/ \\| ",
+            "b---d "
+        };
 
     public:
         void addCard(Card card);
         int getHandValue();
         void displayHand(bool hideHand = false) const; 
+        int getTokens();
+        void setTokens(int tokens);
+        void newGame();
+        void displayPlayer();
+};
+class Table{
+    private:
+        //& PROG2100_08 Slide 16
+        long tableBet = 0L;
+        Player player, dealer;
+        Deck deck;
+        bool isPlayerWinner,DoubleOrNothing = false;
+        bool isPlayerTurn = true;
+        int tableBuffer = 10;
+
+    public:
+        Table(Player& player);
+        void startGame();
+        void displayBet();
+        void displayTable();
+        void results();
+        void placeBet();
+        void setTableBet(int playerBet);
+        int calculateWinner();
 };
 
-void clearScreen();
 void pause();
-void displayTable(Player dealer, Player player, bool dealersTurn = false);
-void results(Player dealer, Player player);
+void clearScreen();
+vector<string> boxify(string title, string boxed, int buffer = 0);
 #endif
