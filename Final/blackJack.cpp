@@ -197,11 +197,11 @@ void Player::setTokens(int tokens){
 void Player::displayPlayer(){
     clearScreen();
     vector<string> display = boxify("TOKENS",to_string(tokens));
-    cout << " " << string(40, '-') << string((display[0].length()), '-') << "---- " << endl;
-    cout << "|" << string(40, ' ') << display[0]<<"    |" << endl;
-    cout << "|    PLAYER 1:       " << string(20, ' ') << display[1] << "    |" << endl;
-    cout << "|" << string(40, ' ') << display[2]<<"    |" << endl;
-    cout << " " << string(40, '-') << string((display[0].length()), '-') << "---- "<<endl;
+    cout << " " << string(102, '-') << string((display[0].length()), '-') << "---- " << endl;
+    cout << "|" << string(102, ' ') << display[0]<<"    |" << endl;
+    cout << "|    PLAYER 1:       " << string(82, ' ') << display[1] << "    |" << endl;
+    cout << "|" << string(102, ' ') << display[2]<<"    |" << endl;
+    cout << " " << string(102, '-') << string((display[0].length()), '-') << "---- "<<endl;
 }
 
 // Table
