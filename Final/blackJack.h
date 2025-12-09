@@ -1,3 +1,14 @@
+/*
+ * Title: CPP Final: BlackJack
+ * Name: Judah Csanyi
+ * Date: December 8, 2025
+ * Description:
+ *      A simple black jack game where the usere can
+ *      play aginst the dealer. Displays cards, calculates
+ *      game and display score
+ */
+
+
 //& PROG2100_11 Slide 9
 // blackJack.h
 
@@ -21,7 +32,7 @@ class Card{
     public:
         //& PROG2100_08 Slide 10
         Card(string r, string s, int v);
-        int getValue();
+        int getValue();      
         void display();
         string getSuit();
         string getRank();
@@ -33,9 +44,9 @@ class Deck{
     public:
         Deck();  
 
-        void buildDeck();
-        void shuffleDeck();
-        Card dealCard();
+        void buildDeck();       //creates deck
+        void shuffleDeck();     // resets deck
+        Card dealCard();        // returns carrd
 };
 class Player{
     private:
@@ -50,13 +61,13 @@ class Player{
         };
 
     public:
-        void addCard(Card card);
-        int getHandValue();
-        void displayHand(bool hideHand = false) const; 
-        int getTokens();
-        void setTokens(int tokens);
-        void newGame();
-        void displayPlayer();
+        void addCard(Card card);        //add card
+        int getHandValue();             // sum of cards
+        void displayHand(bool hideHand = false) const; //prints out hand
+        int getTokens();               
+        void setTokens(int tokens); 
+        void newGame();                 // resets hand
+        void displayPlayer();           // displays score
 };
 class Table{
     private:
@@ -69,17 +80,17 @@ class Table{
         int tableBuffer = 10;
 
     public:
-        Table(Player& player);
-        void startGame();
-        void displayBet();
-        void displayTable();
-        void results();
-        void placeBet();
-        void setTableBet(int playerBet);
-        int calculateWinner();
+        Table(Player& player);      // takes in the palyer refernce
+        void startGame();           // game runs here
+        void displayBet();          // uses the boxify funcition to display the bet in the table
+        void displayTable();        // dispay the playing table
+        void results();             // display the results
+        void placeBet();            // gets user betting input
+        void setTableBet(int playerBet);    //a setter method for the table
+        int calculateWinner();      // find winner
 };
 
 void pause();
 void clearScreen();
-vector<string> boxify(string title, string boxed, int buffer = 0);
+vector<string> boxify(string title, string boxed, int buffer = 0); //returns a box arount a word with a title
 #endif
